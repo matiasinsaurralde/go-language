@@ -2,12 +2,12 @@
 
 echo "building pkg"
 
-go build language
+go build $1 language
 go install language
 
 echo "building executables"
 
-go build -o bin/main src/main.go
-go build -o bin/model_build src/model_build.go
+go build $1 -o bin/main src/main.go
+go build $1 -o bin/model_build src/model_build.go
 
 echo "done."

@@ -58,12 +58,12 @@ func BuildModel( corpusFilename string, modelName string  ) {
 	output := ExtractLetters( corpus )
 	// ordered := OrderPlease( output )
 
-	var k string
+	/*var k string
 	var v interface {}
 
 	for k, v = range output {
 		 fmt.Printf( "%s => %f\n", k, v )
-	}
+	}*/
 
 	var jsonData []byte
 	jsonData, _ = json.Marshal( output )
@@ -93,9 +93,9 @@ func OrderPlease( letters map[string]int ) map[string]int {
 		fm[ sw[k] ] = 0
 	}
 
-	for k,v := range fm {
+/*	for k,v := range fm {
 		fmt.Printf("%s => %d\n", k, v )
-	}
+	}*/
 
 	fmt.Printf("***\n")
 
