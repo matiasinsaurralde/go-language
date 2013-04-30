@@ -38,17 +38,6 @@ func ExtractLetters( text string ) map[string]float64 {
 		letters[ k ] = v/totalLetters*100.0
 	}
 
-	/* 
-
-		var k string
-		var v interface {}
-
-		for k, v = range letters {
-			fmt.Printf( "%s => %d\n", k, v )
-		}
-
-	*/
-
 	return letters
 
 }
@@ -66,6 +55,11 @@ func BuildModel( corpusFilename string, modelName string  ) {
 	for k, v = range output {
 		 fmt.Printf( "%s => %f\n", k, v )
 	}
+
+	var jsonData []byte
+	jsonData, _ = json.Marshal( output )
+
+	ioutil.WriteFile( "models/"+modelName, jsonData, 0644 )
 
 }
 
