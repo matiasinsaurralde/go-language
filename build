@@ -1,5 +1,13 @@
 #!/bin/sh
 
+echo "building pkg"
+
 go build language
 go install language
+
+echo "building executables"
+
 go build -o bin/main src/main.go
+go build -o bin/model_build src/model_build.go
+
+echo "done."
