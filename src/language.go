@@ -2,9 +2,9 @@ package language
 
 import "fmt"
 
-func LoadText(fileName string) bool {
+func LoadText(fileName string) string {
 
-	fmt.Printf("cargando archivo '%s'", fileName)
+	fmt.Printf("loading file '%s'.\n", fileName)
 
-	return true
+	return "this is a sample sentence"
 }

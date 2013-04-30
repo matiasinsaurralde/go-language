@@ -1,0 +1,5 @@
+#!/bin/sh
+
+go build language
+go install language
+go build -o bin/main src/main.go
