@@ -4,6 +4,8 @@ import "language"
 
 func main() {
 
-	language.LoadText("example")
+	// language.LoadText("example")
+
+	language.ExtractLetters("texto de prueba")
 
 }
