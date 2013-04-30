@@ -1,9 +1,17 @@
 package language
 
-import(	"strings"
+import( "encoding/json"
+	"strings"
 	"io/ioutil"
 	"sort"
 	"fmt" )
+
+type Letter struct {
+
+	Name	string
+	Freq	float64	`json:",string"`
+
+}
 
 func ReadText( fileName string ) string {
 	fileContent, _ := ioutil.ReadFile( fileName )
