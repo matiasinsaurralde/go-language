@@ -10,14 +10,24 @@ func ReadText( fileName string ) string {
 	return string( fileContent )
 }
 
-func ExtractLetters( text string ) map[string]int {
+func ExtractLetters( text string ) map[string]float64 {
 
-	letters := make( map[string]int )
+	letters := make( map[string]float64 )
+
+	totalLetters := 0.0
+
+	var k string
+	var v float64
 
 	splits := strings.Split( strings.ToLower( text ), "" )
 
 	for i := 0; i < len( splits ); i++ {
 		letters[ splits[ i ] ] += 1
+		totalLetters++
+	}
+
+	for k, v = range letters {
+		letters[ k ] = v/totalLetters*100.0
 	}
 
 	/* 
@@ -40,16 +50,14 @@ func BuildModel( corpusFilename string, modelName string  ) {
 	corpus := ReadText( corpusFilename )
 
 	output := ExtractLetters( corpus )
-	ordered := OrderPlease( output )
+	// ordered := OrderPlease( output )
 
 	var k string
 	var v interface {}
 
-	for k, v = range ordered {
-		 fmt.Printf( "%s => %d\n", k, v )
+	for k, v = range output {
+		 fmt.Printf( "%s => %f\n", k, v )
 	}
-
-	// fmt.Printf("%s\n", corpus)
 
 }
 
