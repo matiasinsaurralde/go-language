@@ -20,6 +20,8 @@ func ReadText( fileName string ) string {
 
 func ExtractLetters( text string ) map[string]float64 {
 
+	abc := []string{ "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" }
+
 	letters := make( map[string]float64 )
 
 	totalLetters := 0.0
@@ -30,8 +32,15 @@ func ExtractLetters( text string ) map[string]float64 {
 	splits := strings.Split( strings.ToLower( text ), "" )
 
 	for i := 0; i < len( splits ); i++ {
-		letters[ splits[ i ] ] += 1
-		totalLetters++
+
+		index := sort.SearchStrings( abc, splits[i] )
+
+		if ( splits[i] == abc[index] ) {	// by now we'll just use abc.
+
+			letters[ splits[ i ] ] += 1
+			totalLetters++
+
+		}
 	}
 
 	for k, v = range letters {
