@@ -1,10 +1,12 @@
 package language
 
 import( "encoding/json"
-	"strings"
+	"path/filepath"
 	"io/ioutil"
+	"strings"
 	"sort"
-	"fmt" )
+	"fmt"
+	"os" )
 
 type Letter struct {
 
@@ -74,6 +76,11 @@ func BuildModel( corpusFilename string, modelName string  ) {
 
 func LoadModels() {
 	fmt.Printf("loading models.\n")
+
+	filepath.Walk("./models/", func(path string, _ os.FileInfo, _ error) {
+		//fmt.Println(path)
+	})
+	
 }
 
 func OrderPlease( letters map[string]int ) map[string]int {
