@@ -72,6 +72,10 @@ func BuildModel( corpusFilename string, modelName string  ) {
 
 }
 
+func LoadModels() {
+	fmt.Printf("loading models.\n")
+}
+
 func OrderPlease( letters map[string]int ) map[string]int {
 
 	var keys []int

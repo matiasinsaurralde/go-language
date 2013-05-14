@@ -7,6 +7,8 @@ func main() {
 
 	// language.LoadText("example")
 
+	language.LoadModels()
+
 	letters := language.ExtractLetters("texto de prueba")
 
 	var k string
